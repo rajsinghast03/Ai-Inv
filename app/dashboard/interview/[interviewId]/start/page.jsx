@@ -48,16 +48,29 @@ function StartInterview({ params }) {
         />
       </div>
 
-      <div className="flex justify-end gap-6">
-        {activeQuestionIndex > 0 && <Button disabled={activeQuestionIndex==0}  onClick={()=>setActiveQuestionIndex(activeQuestionIndex-1)}>Previous Question</Button>}
+      <div className="flex justify-center gap-6 ">
+        {activeQuestionIndex > 0 && (
+          <Button
+            disabled={activeQuestionIndex == 0}
+            onClick={() => setActiveQuestionIndex(activeQuestionIndex - 1)}
+          >
+            Previous Question
+          </Button>
+        )}
 
-        {activeQuestionIndex !==
-          mockInterviewQuestion?.length - 1 && <Button onClick={()=>setActiveQuestionIndex(activeQuestionIndex+1)}>Next Question</Button>}
+        {activeQuestionIndex !== mockInterviewQuestion?.length - 1 && (
+          <Button
+            onClick={() => setActiveQuestionIndex(activeQuestionIndex + 1)}
+          >
+            Next Question
+          </Button>
+        )}
 
         {activeQuestionIndex == mockInterviewQuestion?.length - 1 && (
-          <Link  href={'/dashboard/interview/'+interviewData?.mockId+"/feedback"}>
-          
-          <Button>End Interview</Button>
+          <Link
+            href={"/dashboard/interview/" + interviewData?.mockId + "/feedback"}
+          >
+            <Button>End Interview</Button>
           </Link>
         )}
       </div>
